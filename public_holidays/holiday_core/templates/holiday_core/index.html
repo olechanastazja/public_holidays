@@ -1,0 +1,9 @@
+{% if holidays %}
+    <ul>
+    {% for holiday in holidays %}
+        <li>{{holiday.english_name }} {{holiday.local_name }} {{holiday.holiday_date|date:'Y-m-d' }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No holidays yet.</p>
+{% endif %}

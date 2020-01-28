@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from holiday_core import views
+from django.core.management import call_command
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.index, name='index'),
 ]
+
+call_command('get_holiday_data')
