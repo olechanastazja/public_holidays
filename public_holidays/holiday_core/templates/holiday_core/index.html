@@ -1,9 +1,34 @@
-{% if holidays %}
-    <ul>
-    {% for holiday in holidays %}
-        <li>{{holiday.english_name }} {{holiday.local_name }} {{holiday.holiday_date|date:'Y-m-d' }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No holidays yet.</p>
-{% endif %}
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ block.super }} | Review
+{% endblock title %}
+
+{% block content %}
+
+    {% if holidays %}
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">English name</th>
+              <th scope="col">Local name</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for holiday in holidays %}
+            <tr>
+              <th scope="row">{{ forloop.counter }}</th>
+              <td>{{holiday.english_name }}</td>
+              <td>{{holiday.local_name }}</td>
+              <td>{{holiday.holiday_date | date:'Y-m-d' }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+    {% else %}
+        <p>No holidays yet.</p>
+    {% endif %}
+
+{% endblock content %}
