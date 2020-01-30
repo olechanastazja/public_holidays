@@ -1,0 +1,18 @@
+[
+  {"model": "holiday_core.country",
+    "pk": 1, "fields": {
+      "local_name": "Polska",
+      "english_name": "Poland",
+      "code": "PL"
+  }
+  },
+  {
+    "model": "holiday_core.country",
+    "pk": 2,
+    "fields": {
+      "local_name": "\u010cesko",
+      "english_name": "Czech Republic",
+      "code": "CZ"
+    }
+  }
+]
