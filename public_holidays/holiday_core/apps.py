@@ -6,6 +6,4 @@ class HolidayCoreConfig(AppConfig):
     name = 'holiday_core'
 
     def ready(self):
-        call_command('migrate')
-        call_command('loaddata', 'countries')
         call_command('get_holiday_data')

@@ -1,10 +1,5 @@
 from django.db import models
 
-'''
-PublicHoliday (lokalna nazwa święta, angielska nazwa święta, data święta, id_country)
-Country (lokalna nazwa kraju, angielska nazwa kraju, kod kraju)
-'''
-
 
 class Country(models.Model):
     local_name = models.CharField(max_length=100)

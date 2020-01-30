@@ -12,10 +12,8 @@ class Command(BaseCommand):
         source_url = settings.HOLIDAY_API_URL
         years = settings.YEARS
         countries = Country.objects.all()
-        all_urls = []
         for country in countries:
             country_code = country.code
-            # [all_urls.append(f"{source_url}/{year}/{country_code}") for year in years]
             for year in years:
                 with urllib.request.urlopen(f"{source_url}/{year}/{country_code}") as url:
                     data = json.loads(url.read().decode())
@@ -31,4 +29,4 @@ class Command(BaseCommand):
                         except IntegrityError:
                             self.stdout.write(self.style.WARNING('That holiday already in database'))
 
-        self.stdout.write(self.style.SUCCESS('Successfully obtained holiday data'))
+        self.stdout.write(self.style.SUCCESS('Successfully retrieved holiday data'))
