@@ -1,33 +1,48 @@
-from django.shortcuts import render
-from django.shortcuts import redirect
-from .models import PublicHoliday, Country
+"""
+Generic views for holiday app
+"""
+
+# pylint: disable=no-member
 from django.views.generic.list import ListView
-from django.conf import settings
 
-
-def index(request):
-    default_country = Country.objects.get(code=settings.DEFAULT_COUNTRY)
-    default_year = settings.DEFAULT_YEAR
-    return redirect('main_view', country_id=default_country.id, year=default_year)
+from .models import (
+    PublicHoliday,
+    Country
+)
 
 
 class HolidaysCountryYear(ListView):
+    # pylint: disable=too-many-ancestors
+    """
+    View delivers holiday list data
+    accordingly to passed url parameters (path variables)
+    """
 
     model = PublicHoliday
     template_name = 'holiday_core/index.html'
     context_object_name = 'holidays'
 
     def get_queryset(self):
-        country_id = self.kwargs['country_id']
+        """
+        Returns queryset filtered with url parameters
+        """
+        code = self.kwargs['code'].upper()
         year = self.kwargs['year']
-        qs = PublicHoliday.objects.filter(
+        country_id = Country.objects.get(code=code).id
+        query = PublicHoliday.objects.filter(
             country_id=country_id,
             holiday_date__year=year
         )
-        return qs
+        return query
 
     def get_context_data(self, **kwargs):
+        # pylint: disable=arguments-differ
+        """
+        Passes to template url kwargs
+        When kwargs are not passed in url,
+        context passes default values (see urls.py)
+        """
         context = super().get_context_data(**kwargs)
-        context['country_id'] = self.kwargs['country_id']
+        context['code'] = self.kwargs['code']
         context['year'] = self.kwargs['year']
         return context

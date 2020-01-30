@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import enum
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -129,7 +128,7 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static-serve')
 
-HOLIDAY_API_URL = f'https://date.nager.at/api/v2/PublicHolidays'
+HOLIDAY_API_URL = 'https://date.nager.at/api/v2/PublicHolidays'
 
 YEARS = [2020, 2021, 2022]
 

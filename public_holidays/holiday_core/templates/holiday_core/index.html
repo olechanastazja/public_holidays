@@ -7,6 +7,7 @@
 {% block content %}
 
     {% if holidays %}
+        {# create rows in table with respective context data #}
         <table class="table">
           <thead class="thead-dark">
             <tr>
@@ -27,6 +28,7 @@
           {% endfor %}
           </tbody>
         </table>
+
     {% else %}
         <p>No holidays yet.</p>
     {% endif %}

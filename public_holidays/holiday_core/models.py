@@ -1,3 +1,8 @@
+"""
+Models for Country / PublicHolidays
+"""
+# pylint: disable=missing-class-docstring
+
 from django.db import models
 
 
@@ -14,6 +19,10 @@ class PublicHoliday(models.Model):
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
 
     class Meta:
+        # pylint: disable=too-few-public-methods
         constraints = [
-            models.UniqueConstraint(fields=['holiday_date', 'local_name'], name='unique holiday')
+            models.UniqueConstraint(
+                fields=['holiday_date', 'local_name'],
+                name='unique holiday'
+            )
         ]
