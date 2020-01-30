@@ -4,12 +4,14 @@
     <a class="navbar-brand" href="#" style="color: white; font-weight: bold">Country Holidays</a>
     <div class="navbar-nav mr-auto mt-2 mt-l-0"></div>
       <div class="mr-2">
-          <a href="{% url 'main_view' country_id=1 year=year %}">
+          {# pass PL country code in URL with context year #}
+          <a href="{% url 'main_view' code='PL' year=year %}">
               <img src="{% static 'img/PL.png' %}">
           </a>
       </div>
       <div class="mr-2">
-          <a href="{% url 'main_view' country_id=2 year=year %}">
+          {# pass CZ country code in URL with context year #}
+          <a href="{% url 'main_view' code='CZ' year=year %}">
               <img src="{% static 'img/CZ.png' %}">
           </a>
       </div>

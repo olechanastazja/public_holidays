@@ -1,16 +1,17 @@
-<div class="d-flex justify-content-center row mt-4">
+<div class="d-flex justify-content-center row mt-5">
+    {# filter with years and context country code #}
     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-      <button onclick="location.href='{% url "main_view" country_id=country_id year=2020 %}'"
+      <button onclick="location.href='{% url "main_view" code=code year=2020 %}'"
               type="button"
               class="btn btn-secondary">
           2020
       </button>
-      <button onclick="location.href='{% url "main_view" country_id=country_id year=2021 %}'"
+      <button onclick="location.href='{% url "main_view" code=code year=2021 %}'"
               type="button"
               class="btn btn-secondary">
           2021
       </button>
-      <button onclick="location.href='{% url "main_view" country_id=country_id year=2022 %}'"
+      <button onclick="location.href='{% url "main_view" code=code year=2022 %}'"
               type="button"
               class="btn btn-secondary">
           2022
