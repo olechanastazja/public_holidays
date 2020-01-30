@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-center row mt-4">
+    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+      <button onclick="location.href='{% url "main_view" country_id=country_id year=2020 %}'"
+              type="button"
+              class="btn btn-secondary">
+          2020
+      </button>
+      <button onclick="location.href='{% url "main_view" country_id=country_id year=2021 %}'"
+              type="button"
+              class="btn btn-secondary">
+          2021
+      </button>
+      <button onclick="location.href='{% url "main_view" country_id=country_id year=2022 %}'"
+              type="button"
+              class="btn btn-secondary">
+          2022
+      </button>
+    </div>
+</div>
