@@ -22,6 +22,9 @@ $ cd public_holidays
 ### Manual way 
 
 ```
+$ virtualenv -p python3 venv/
+$ source venv/bin/activate
+$ pip install -r requirements.txt
 $ python3 manage.py migrate
 $ python3 manage.py loaddata countries.json
 $ python3 manage.py collectstatic
