@@ -31,9 +31,7 @@ class Command(BaseCommand):
                     try:
                         PublicHoliday.objects.create(**holiday_data)
                     except IntegrityError:
-                        self.stdout.write(
-                            self.style.WARNING('This record is in database')
-                        )
+                        pass
 
         self.stdout.write(
             self.style.SUCCESS('Successfully obtained holiday data')
