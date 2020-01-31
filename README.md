@@ -16,7 +16,7 @@ $ cd public_holidays
 ### Docker way
 
 ```bash
-# docker-compose up -d
+# docker-compose up
 ```
 
 ### Manual way 
